@@ -18,8 +18,8 @@ app.use(express.json());
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/nexusshop")
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+  .then(() => console.log("MongoDB connected - server.js:21"))
+  .catch((err) => console.error("MongoDB connection error: - server.js:22", err));
 
 // Routes
 app.use("/api/auth", authRoutes);
@@ -33,7 +33,9 @@ app.get("/", (req, res) => {
   res.send("Ooredoo API is running");
 });
 
+console.log("Hello - server.js:36")
+
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT} - server.js:40`);
 });
